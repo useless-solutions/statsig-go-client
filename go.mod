@@ -2,7 +2,10 @@ module github.com/nonsense-solutions/statsig-go-client
 
 go 1.22.5
 
-require github.com/oapi-codegen/oapi-codegen/v2 v2.4.1
+require (
+	github.com/go-chi/chi/v5 v5.2.1
+	github.com/oapi-codegen/oapi-codegen/v2 v2.4.1
+)
 
 require (
 	github.com/dprotaso/go-yit v0.0.0-20240618133044-5a0af90af097 // indirect
