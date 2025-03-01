@@ -2,40 +2,22 @@ name-template: "v$RESOLVED_VERSION"
 tag-template: "v$RESOLVED_VERSION"
 categories:
   - title: "🚀 Features"
-    labels: ["feature", "enhancement"]
+    labels: ["feature"]
   - title: "🐛 Bug Fixes"
-    labels: ["bug", "fix"]
+    labels: ["fix"]
   - title: "🧰 Maintenance"
-    labels: ["chore", "refactor"]
+    labels: ["chore"]
 change-template: "-- [#[$NUMBER]($URL)] $TITLE by @$AUTHOR"
 version-resolver:
   major:
     labels: ["breaking-change"]
   minor:
-    labels: ["feature", "enhancement"]
+    labels: ["feature"]
   patch:
-    labels: ["bug", "fix", "chore", "refactor"]
+    labels: ["fix", "chore"]
   default: patch
 prerelease-identifier: "alpha"
 template: |
   ## Changes
 
   $CHANGES
-autolabeler:
-  - label: "feature"
-    branch:
-      - feature/*
-      - feat/*
-  - label: "fix"
-    branch:
-      - fix/*
-      - bug/*
-  - label: "chore"
-    branch:
-      - chore/*
-      - docs/*
-      - refactor/*
-  - label: "breaking-change"
-    branch:
-      - breaking/*
-      - major/*
