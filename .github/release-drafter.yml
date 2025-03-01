@@ -7,7 +7,7 @@ categories:
     labels: ["bug", "fix"]
   - title: "🧰 Maintenance"
     labels: ["chore", "refactor"]
-change-template: "-- $TITLE by @$AUTHOR"
+change-template: "-- [$NUMBER]($URL) $TITLE by @$AUTHOR"
 version-resolver:
   major:
     labels: ["breaking-change"]
