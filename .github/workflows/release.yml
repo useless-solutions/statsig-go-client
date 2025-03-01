@@ -1,5 +1,8 @@
 ---
 name: Create GitHub Release
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
 
 on:
   push:
@@ -8,10 +11,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * 1"
-  # pull_request event is required only for autolabeler
-  pull_request:
-    # Only following types are handled by the action, but one can default to all as well
-    types: [opened, reopened, synchronize]
 
 permissions:
   contents: read
