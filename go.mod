@@ -1,4 +1,4 @@
-module github.com/nonsense-solutions/statsig-go-client
+module github.com/useless-solutions/statsig-go-client
 
 go 1.22.5
 
