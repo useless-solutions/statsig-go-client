@@ -4,6 +4,3 @@ pull-spec:
 
 gen-spec: pull-spec
 	go generate tools/tools.go
-
-gen-spec-2: pull-spec
-	openapi-generator generate -i .out/spec.json -g go -o client --skip-validate-spec
