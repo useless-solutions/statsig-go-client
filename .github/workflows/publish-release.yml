@@ -1,16 +1,10 @@
----
-name: Create GitHub Release
+name: Publish GitHub Release
 concurrency:
   group: release-${{ github.ref }}
   cancel-in-progress: true
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * 1"
 
 permissions:
   contents: read
@@ -29,5 +23,7 @@ jobs:
 
       - name: Run Release Drafter
         uses: release-drafter/release-drafter@v6
+        with:
+          publish: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
