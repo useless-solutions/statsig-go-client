@@ -17,3 +17,25 @@ version-resolver:
     labels: ["bug", "fix", "chore", "refactor"]
   default: patch
 prerelease-identifier: "alpha"
+template: |
+  ## Changes
+
+  $CHANGES
+autolabeler:
+  - label: "feature"
+    branch:
+      - feature/*
+      - feat/*
+  - label: "fix"
+    branch:
+      - fix/*
+      - bug/*
+  - label: "chore"
+    branch:
+      - chore/*
+      - docs/*
+      - refactor/*
+  - label: "breaking-change"
+    branch:
+      - breaking/*
+      - major/*
