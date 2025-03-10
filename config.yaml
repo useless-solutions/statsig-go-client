@@ -1,6 +1,8 @@
 # yaml-language-server: ...
-package: api
+package: client
 generate:
-  chi-server: true
+  client: true
   models: true
-output: gen.go
+output: client.gen.go
+output-options:
+  nullable-type: true
