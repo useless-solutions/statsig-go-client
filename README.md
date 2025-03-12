@@ -14,8 +14,7 @@ go get github.com/useless-solutions/statsig-go-client
 ```
 
 ## Hacks
-As a work around to get around codegen issues, we manually edited the OpenAPI schema to change the `passRate` and `rolloutRate` parameters to use a `string` type instead of an `array` type.
-
+As a workaround to get around codegen issues, we manually edited the OpenAPI schema to change the `passRate` and `rolloutRate` parameters to use a `string` type instead of an `array` type.
 ```json
 {
   "name": "passRate",
