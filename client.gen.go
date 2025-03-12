@@ -2815,18 +2815,18 @@ const (
 	GetConsoleV1GatesParamsTypeReasonSTALEPROBABLYUNLAUNCHED GetConsoleV1GatesParamsTypeReason = "STALE_PROBABLY_UNLAUNCHED"
 )
 
-// Defines values for GetConsoleV1GatesParamsPassRate0.
+// Defines values for GetConsoleV1GatesParamsPassRate.
 const (
-	GetConsoleV1GatesParamsPassRate0INBETWEEN GetConsoleV1GatesParamsPassRate0 = "INBETWEEN"
-	GetConsoleV1GatesParamsPassRate0N0        GetConsoleV1GatesParamsPassRate0 = "0"
-	GetConsoleV1GatesParamsPassRate0N100      GetConsoleV1GatesParamsPassRate0 = "100"
+	GetConsoleV1GatesParamsPassRateINBETWEEN GetConsoleV1GatesParamsPassRate = "INBETWEEN"
+	GetConsoleV1GatesParamsPassRateN0        GetConsoleV1GatesParamsPassRate = "0"
+	GetConsoleV1GatesParamsPassRateN100      GetConsoleV1GatesParamsPassRate = "100"
 )
 
-// Defines values for GetConsoleV1GatesParamsRolloutRate0.
+// Defines values for GetConsoleV1GatesParamsRolloutRate.
 const (
-	GetConsoleV1GatesParamsRolloutRate0INBETWEEN GetConsoleV1GatesParamsRolloutRate0 = "INBETWEEN"
-	GetConsoleV1GatesParamsRolloutRate0N0        GetConsoleV1GatesParamsRolloutRate0 = "0"
-	GetConsoleV1GatesParamsRolloutRate0N100      GetConsoleV1GatesParamsRolloutRate0 = "100"
+	GetConsoleV1GatesParamsRolloutRateINBETWEEN GetConsoleV1GatesParamsRolloutRate = "INBETWEEN"
+	GetConsoleV1GatesParamsRolloutRateN0        GetConsoleV1GatesParamsRolloutRate = "0"
+	GetConsoleV1GatesParamsRolloutRateN100      GetConsoleV1GatesParamsRolloutRate = "100"
 )
 
 // Defines values for DeleteConsoleV1IngestionParamsType.
@@ -9792,14 +9792,10 @@ type GetConsoleV1GatesParams struct {
 	TypeReason *GetConsoleV1GatesParamsTypeReason `form:"typeReason,omitempty" json:"typeReason,omitempty"`
 
 	// PassRate Filter by pass rate of the gates, as determined by a sampling of overall true/false values returned: 0, 100, or INBETWEEN (pass rate greater than zero but less than 100)
-	PassRate *struct {
-		union json.RawMessage
-	} `form:"passRate,omitempty" json:"passRate,omitempty"`
+	PassRate *[]GetConsoleV1GatesParamsPassRate `form:"passRate,omitempty" json:"passRate,omitempty"`
 
 	// RolloutRate Filter by rollout rate of the gates: 0 (all rules are set to pass 0%), 100 (all rules pass 100% including an "everyone" catch all rule), or INBETWEEN (at least one rule has a pass rate greater than 0 but less than 100)
-	RolloutRate *struct {
-		union json.RawMessage
-	} `form:"rolloutRate,omitempty" json:"rolloutRate,omitempty"`
+	RolloutRate *[]GetConsoleV1GatesParamsRolloutRate `form:"rolloutRate,omitempty" json:"rolloutRate,omitempty"`
 
 	// ReleasePipelineID Filter by release pipeline ID
 	ReleasePipelineID *string `form:"releasePipelineID,omitempty" json:"releasePipelineID,omitempty"`
@@ -9837,23 +9833,11 @@ type GetConsoleV1GatesParamsType string
 // GetConsoleV1GatesParamsTypeReason defines parameters for GetConsoleV1Gates.
 type GetConsoleV1GatesParamsTypeReason string
 
-// GetConsoleV1GatesParamsPassRate0 defines parameters for GetConsoleV1Gates.
-type GetConsoleV1GatesParamsPassRate0 string
+// GetConsoleV1GatesParamsPassRate defines parameters for GetConsoleV1Gates.
+type GetConsoleV1GatesParamsPassRate string
 
-// GetConsoleV1GatesParamsPassRate1 defines parameters for GetConsoleV1Gates.
-type GetConsoleV1GatesParamsPassRate1 = []GetConsoleV1GatesParamsPassRate1
-
-// GetConsoleV1GatesParamsPassRate1 defines parameters for GetConsoleV1Gates.
-type GetConsoleV1GatesParamsPassRate1 string
-
-// GetConsoleV1GatesParamsRolloutRate0 defines parameters for GetConsoleV1Gates.
-type GetConsoleV1GatesParamsRolloutRate0 string
-
-// GetConsoleV1GatesParamsRolloutRate1 defines parameters for GetConsoleV1Gates.
-type GetConsoleV1GatesParamsRolloutRate1 = []GetConsoleV1GatesParamsRolloutRate1
-
-// GetConsoleV1GatesParamsRolloutRate1 defines parameters for GetConsoleV1Gates.
-type GetConsoleV1GatesParamsRolloutRate1 string
+// GetConsoleV1GatesParamsRolloutRate defines parameters for GetConsoleV1Gates.
+type GetConsoleV1GatesParamsRolloutRate string
 
 // GetConsoleV1GatesParamsTags0 defines parameters for GetConsoleV1Gates.
 type GetConsoleV1GatesParamsTags0 = string

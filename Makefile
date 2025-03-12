@@ -6,3 +6,9 @@ gen-spec:
 	go run github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen -config config.yaml docs/spec.json
 
 build: pull-spec gen-spec
+
+fix-lint:
+	golangci-lint run -v --fix
+
+lint:
+	golangci-lint run -v

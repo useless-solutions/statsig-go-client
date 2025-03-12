@@ -13,4 +13,36 @@ To install the Statsig Go client, run the following command:
 go get github.com/useless-solutions/statsig-go-client
 ```
 
+## Hacks
+As a work around to get around codegen issues, we manually edited the OpenAPI schema to change the `passRate` and `rolloutRate` parameters to use a `string` type instead of an `array` type.
+
+```json
+{
+  "name": "passRate",
+  "required": false,
+  "in": "query",
+  "description": "Filter by pass rate of the gates, as determined by a sampling of overall true/false values returned: 0, 100, or INBETWEEN (pass rate greater than zero but less than 100)",
+  "schema": {
+    "type": "array",
+    "items": {
+      "type": "string",
+      "enum": ["0", "100", "INBETWEEN"]
+    }
+  }
+},
+{
+ "name": "rolloutRate",
+ "required": false,
+ "in": "query",
+ "description": "Filter by rollout rate of the gates: 0 (all rules are set to pass 0%), 100 (all rules pass 100% including an \"everyone\" catch all rule), or INBETWEEN (at least one rule has a pass rate greater than 0 but less than 100)",
+ "schema": {
+   "type": "array",
+   "items": {
+     "type": "string",
+     "enum": ["0", "100", "INBETWEEN"]
+   }
+ }
+},
+```
+
 The repository is managed by [@httpoz](https://github.com/httpoz) and [@tamirarnesty](https://github.com/tamirarnesty).
