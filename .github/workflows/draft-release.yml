@@ -7,4 +7,4 @@ on:
 
 jobs:
   call-draft-release:
-    uses: useless-solutions/.github/workflows/release-draft.yml@main
+    uses: useless-solutions/.github/.github/workflows/release-draft.yml@main
