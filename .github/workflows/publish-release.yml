@@ -5,4 +5,4 @@ on:
 
 jobs:
   call-publish-release:
-    uses: useless-solutions/.github/workflows/publish-release.yml@main
+    uses: useless-solutions/.github/workflows/release-publish.yml@main
