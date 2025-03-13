@@ -7,6 +7,6 @@ on:
 
 jobs:
   call-ci:
-    uses: useless-solutions/.github/workflows/pr.yml@main
+    uses: useless-solutions/.github/.github/workflows/pr.yml@main
     with:
       GO_VERSION: "1.24"
